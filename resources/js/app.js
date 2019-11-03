@@ -6,6 +6,8 @@ import Store from './store'
 // ルートコンポーネントをインポートする
 import App from './App.vue'
 
+import './bootstrap'
+
 new Vue({
   el: '#app',
   router, // ルーティングの定義を読み込む
