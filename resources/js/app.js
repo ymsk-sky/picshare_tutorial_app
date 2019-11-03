@@ -1,12 +1,12 @@
+import './bootstrap'
+
 import Vue from 'vue'
 // ルーティングの定義をインポートする
 import router from './router'
 // Vuexのストアをインポートする
-import Store from './store'
+import store from './store'
 // ルートコンポーネントをインポートする
 import App from './App.vue'
-
-import './bootstrap'
 
 new Vue({
   el: '#app',
