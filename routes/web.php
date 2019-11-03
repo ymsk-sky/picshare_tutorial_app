@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// APIのURL以外のリクエストに対してindexテンプレートを返す
+// 画面遷移はフロントエンドのVueRouterで制御する
+Route::get('/{any?}', function () {
+  return view('index');
+})->where('any', '.+');
