@@ -52,6 +52,20 @@ TestCase.phpに合わせて
 
 と、返り値はvoid型（返り値なし）と記述する必要あり
 
+## 8章
+
+システムエラー実装時authストアへsetApiStatusの実装の説明がない
+
+```javascript:auth.js
+const mutations = {
+  setUser (state, user) {/* 略 */},
+  setApiStatus (state, status) {
+    state.apiStatus = apiStatus
+  },
+  setLoginErrorMessages (state, messages) {/* 略 */}
+}
+```
+
 # 参考記事
 - [Vue + Vue Router + Vuex + Laravel チュートリアル（全16回）を書きました。 - Qiita](https://qiita.com/MasahiroHarada/items/2597bd6973a45f92e1e8)
 
