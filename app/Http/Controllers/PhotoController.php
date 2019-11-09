@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\StorePhoto;
+use App\Http\Requests\StorePhoto;
 use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +35,7 @@ class PhotoController extends Controller
 
         // ファイルを保存する
         // 第三引数の'public'はファイルを公開状態で保存するため
-        Store::cloud()->putFileAs('', $request->photo, $photo->filename, 'public');
+        Storage::cloud()->putFileAs('', $request->photo, $photo->filename, 'public');
 
         // データベースエラー時にファイル削除を行なうため
         // トランザクションを利用する
