@@ -64,6 +64,17 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_HOST'),
+            'username' => env('SFTP_USERNAME'),
+            'privateKey' => env('SFTP_KEY_PATH'),
+            'password' => env('SFTP_PASSWORD'),
+            'port' => env('SFTP_PORT'),
+            'root' => env('SFTP_ROOT'),
+            'timeout' => 10,
+        ]
+
     ],
 
 ];

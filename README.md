@@ -66,6 +66,15 @@ const mutations = {
 }
 ```
 
+## 9章
+
+Photo.phpのコンストラクタにて使用のarray_get()はLaravel 5.8から非推奨になった
+以下の措置をとる
+
+> use Illuminate\Support\Arr;
+
+>array_get()をArr:get()へ置き換える
+
 # 参考記事
 - [Vue + Vue Router + Vuex + Laravel チュートリアル（全16回）を書きました。 - Qiita](https://qiita.com/MasahiroHarada/items/2597bd6973a45f92e1e8)
 
