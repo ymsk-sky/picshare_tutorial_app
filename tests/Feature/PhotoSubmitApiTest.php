@@ -28,8 +28,8 @@ class PhotoSubmitApiTest extends TestCase
     public function should_upload_picture()
     {
         // S3ではなくテスト用ストレージを使用する
-        // storage/framework/testing
-        Storage::fake('sftp')
+        // → storage/framework/testing
+        Storage::fake('sftp');
 
         $response = $this->actingAs($this->user)
             ->json('POST', route('photo.create'), [
@@ -37,6 +37,7 @@ class PhotoSubmitApiTest extends TestCase
                 'photo' => UploadedFile::fake()->image('photo.jpg'),
             ]);
 
+        // レスポンスは201(CREATED)である
         $response->assertStatus(201);
 
         $photo = Photo::first();
@@ -51,44 +52,46 @@ class PhotoSubmitApiTest extends TestCase
     /**
      * @test
      */
-     public function should_not_save_file_as_database_error()
-     {
-         // DBエラーを起こす
-         Schema::drop('photos');
+    public function should_not_save_file_as_database_error()
+    {
+        // DBエラーを起こす
+        Schema::drop('photos');
 
-         Storage::fake('sftp');
+        Storage::fake('sftp');
 
-         $response = $this->actingAs($this->user)
-             ->json('POST', route('photo.create'), [
-                 // ダミーファイルを作成して送信
-                 'photo' => UploadedFile::fake()->image('photo.jpg'),
-             ]);
+        $response = $this->actingAs($this->user)
+            ->json('POST', route('photo.create'), [
+                // ダミーファイルを作成して送信
+                'photo' => UploadedFile::fake()->image('photo.jpg'),
+            ]);
 
-         $response->assertStatus(500);
+        // レスポンスが500(INTERNAL SERVER ERROR)である
+        $response->assertStatus(500);
 
-         // ストレージにファイルが保存されていない
-         $this->assertEquals(0, count(Storage::cloud()->files()));
-     }
+        // ストレージにファイルが保存されていない
+        $this->assertEquals(0, count(Storage::cloud()->files()));
+    }
 
-     /**
-      * @test
-      */
-      public function should_not_insert_to_db_as_file_save_error()
-      {
-          // ストレージをモックして保存時にエラーを起こす
-          Storage::shouldReceive('cloud')
-              ->once()
-              ->andReturnNull();
+    /**
+     * @test
+     */
+    public function should_not_insert_to_db_as_file_save_error()
+    {
+        // ストレージをモックして保存時にエラーを起こす
+        Storage::shouldReceive('cloud')
+            ->once()
+            ->andReturnNull();
 
-          $response = $this->actingAs($this->user)
-              ->json('POST', route('photo.create'), [
-                  // ダミーファイルを作成して送信
-                  'photo' => UploadedFile::fake()->image('photo.jpg'),
-              ]);
+        $response = $this->actingAs($this->user)
+            ->json('POST', route('photo.create'), [
+                // ダミーファイルを作成して送信
+                'photo' => UploadedFile::fake()->image('photo.jpg'),
+            ]);
 
-          $response->assertStatus(500);
+        // レスポンスが500(INTERNAL SERVER ERROR)である
+        $response->assertStatus(500);
 
-          // データベースに何も挿入されていない
-          $this->assertEmpty(Photo::all());
-      }
+        // データベースに何も挿入されていない
+        $this->assertEmpty(Photo::all());
+    }
 }

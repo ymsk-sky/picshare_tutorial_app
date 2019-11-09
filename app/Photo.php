@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class Photo extends Model
 {
@@ -16,7 +17,7 @@ class Photo extends Model
     {
         parent::__construct($attributes);
 
-        if(! array_get($this->attributes, 'id')) {
+        if(! Arr::get($this->attributes, 'id')) {
             $this->setId();
         }
     }
@@ -39,7 +40,7 @@ class Photo extends Model
             range('A', 'Z'), ['-', '_']
         );
 
-        $length = const($characters);
+        $length = count($characters);
 
         $id = "";
 

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => env('FILESYSTEM_CLOUD', 'sftp'),
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL'),
+            'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
 
@@ -65,14 +65,14 @@ return [
         ],
 
         'sftp' => [
-          'driver' => 'sftp',
-          'host' => env('SFTP_HOST'),
-          'username' => env('SFTP_USERNAME'),
-          'privateKey' => env('SFTP_KEY_PATH'),
-          'password' => env('SFTP_PASSWORD'),
-          'port' => env('SFTP_PORT'),
-          'root' => env('SFTP_ROOT'),
-          'timeout' => 30,
+            'driver' => 'sftp',
+            'host' => env('SFTP_HOST'),
+            'username' => env('SFTP_USERNAME'),
+            'privateKey' => env('SFTP_KEY_PATH'),
+            'password' => env('SFTP_PASSWORD'),
+            'port' => env('SFTP_PORT'),
+            'root' => env('SFTP_ROOT'),
+            'timeout' => 10,
         ]
 
     ],
