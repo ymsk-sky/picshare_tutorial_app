@@ -68,11 +68,13 @@ return [
             'driver' => 'sftp',
             'host' => env('SFTP_HOST'),
             'username' => env('SFTP_USERNAME'),
+            // 'password' => env('SFTP_PASSWORD'),
             'privateKey' => env('SFTP_KEY_PATH'),
-            'password' => env('SFTP_PASSWORD'),
+            'passphrase' => env('SFTP_PASSPHRASE'),
             'port' => env('SFTP_PORT'),
             'root' => env('SFTP_ROOT'),
             'timeout' => 10,
+            'directoryPerm' => 0755
         ]
 
     ],

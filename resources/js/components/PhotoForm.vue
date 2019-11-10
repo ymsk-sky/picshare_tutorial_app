@@ -100,7 +100,7 @@ export default {
       this.reset()
       this.$emit('input', false)
 
-      if (response !== CREATED) {
+      if (response.status !== CREATED) {
         this.$store.commit('error/setCode', response.status)
         return false
       }

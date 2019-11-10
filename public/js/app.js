@@ -2202,7 +2202,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.reset();
                 this.$emit('input', false);
 
-                if (!(response !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
+                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["CREATED"])) {
                   _context.next = 15;
                   break;
                 }
