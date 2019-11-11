@@ -45,10 +45,10 @@ class PhotoController extends Controller
             Auth::user()->photos()->save($photo);
             DB::commit();
         } catch (\Exception $exception) {
-          DB::rollBack();
-          // DBと不整合を避けるためアップロードしたファイルを削除
-          Storage::cloud()->delete($photo->filename);
-          throw $exception;
+            DB::rollBack();
+            // DBと不整合を避けるためアップロードしたファイルを削除
+            Storage::cloud()->delete($photo->filename);
+            throw $exception;
         }
 
         // リソースの新規作成なので
