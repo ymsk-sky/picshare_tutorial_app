@@ -74,7 +74,7 @@ return [
             'port' => env('SFTP_PORT'),
             'root' => env('SFTP_ROOT'),
             'timeout' => 10,
-            'directoryPerm' => 0755
+            'directoryPerm' => 0755,
         ]
 
     ],
