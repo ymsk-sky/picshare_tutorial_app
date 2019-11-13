@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "deb1d36fc0aec94856c6e7443c458a00",
+    "content-hash": "3e899f24638792445e5e59955802826d",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2924,6 +2924,54 @@
             "time": "2019-10-13T12:02:04+00:00"
         },
         {
+            "name": "talvbansal/laravel-public-sftp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/talvbansal/laravel-public-sftp.git",
+                "reference": "e2669ef7a9e42ded25404b574a7b2c6e5345e9f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v3/projects/talvbansal%2Flaravel-public-sftp/repository/archive.zip?sha=e2669ef7a9e42ded25404b574a7b2c6e5345e9f9",
+                "reference": "e2669ef7a9e42ded25404b574a7b2c6e5345e9f9",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem-sftp": "^1.0@dev",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6@dev",
+                "phpunit/phpunit": "^6.1@dev",
+                "squizlabs/php_codesniffer": "^2.0@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TalvBansal\\SftpPublic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Talvinder Bansal",
+                    "email": "talvbansal@hotmail.com"
+                }
+            ],
+            "description": "An extension to the flysystem Sftp adapter that allows you to configure a public URL for files to be accessible from.",
+            "keywords": [
+                "Flysystem",
+                "laravel",
+                "public",
+                "sftp"
+            ],
+            "time": "2017-05-02T15:08:52+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.2",
             "source": {
@@ -5017,7 +5065,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "talvbansal/laravel-public-sftp": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
