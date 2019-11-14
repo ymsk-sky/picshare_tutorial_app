@@ -29,7 +29,7 @@ class PhotoSubmitApiTest extends TestCase
     {
         // S3ではなくテスト用ストレージを使用する
         // → storage/framework/testing
-        Storage::fake('sftp');
+        Storage::fake('public-sftp');
 
         $response = $this->actingAs($this->user)
             ->json('POST', route('photo.create'), [
@@ -57,7 +57,7 @@ class PhotoSubmitApiTest extends TestCase
         // DBエラーを起こす
         Schema::drop('photos');
 
-        Storage::fake('sftp');
+        Storage::fake('public-sftp');
 
         $response = $this->actingAs($this->user)
             ->json('POST', route('photo.create'), [
