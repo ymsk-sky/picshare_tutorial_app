@@ -54,7 +54,7 @@ TestCase.phpに合わせて
 
 ## 8章
 
-システムエラー実装時authストアへsetApiStatusの実装の説明がない
+### システムエラー実装時authストアへsetApiStatusの実装の説明がない
 
 ```javascript:auth.js
 const mutations = {
@@ -68,7 +68,7 @@ const mutations = {
 
 ## 9章
 
-Photo.phpのコンストラクタにて使用のarray_get()はLaravel 5.8から非推奨になった
+### Photo.phpのコンストラクタにて使用のarray_get()はLaravel 5.8から非推奨になった
 
 以下の措置をとる
 
@@ -78,13 +78,13 @@ Photo.phpのコンストラクタにて使用のarray_get()はLaravel 5.8から�
 
 ## 11章
 
-Photo.phpに以下を追加
+### Photo.phpに以下を追加
 
 ```
 use Illuminate\Support\Facades\Storage;
 ```
 
-str_random()は非推奨なので以下に変更
+### str_random()は非推奨なので以下に変更
 
 ```diff
 -'id' => str_random(12),
@@ -95,7 +95,7 @@ str_random()は非推奨なので以下に変更
 
 ## 12章
 
-Pagination実装時
+### Pagination実装時
 
 `PhotoList.vue` 内のscript内のmethods内fetchPhotosメソッド
 
@@ -104,6 +104,16 @@ async fetchPhotos () {
 -  const response = await axios.get(`/api/photos/?page=${this.page}`)
 +  const response = await axios.get(`/api/photos/?page=${this.$route.query.page}`)
 }
+```
+
+### おまけ実装時
+
+Photo.vue内<img>タグ内の `:src` は
+
+`:src="item.filepath"` では画像が表示されない。以下に変更
+
+```
+:scr="item.url"
 ```
 
 # 参考記事
