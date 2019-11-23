@@ -48,6 +48,9 @@ const routes = [
 // VueRouterインスタンスを作成する
 const router = new VueRouter({
   mode: 'history',  // URLにハッシュ#をつけない
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  },
   routes
 })
 
