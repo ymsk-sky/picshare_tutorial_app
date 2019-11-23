@@ -93,6 +93,19 @@ str_random()は非推奨なので以下に変更
 +'filename' => Str::random(12) . '.jpg',
 ```
 
+## 12章
+
+Pagination実装時
+
+`PhotoList.vue` 内のscript内のmethods内fetchPhotosメソッド
+
+```diff
+async fetchPhotos () {
+-  const response = await axios.get(`/api/photos/?page=${this.page}`)
++  const response = await axios.get(`/api/photos/?page=${this.$route.query.page}`)
+}
+```
+
 # 参考記事
 - [Vue + Vue Router + Vuex + Laravel チュートリアル（全16回）を書きました。 - Qiita](https://qiita.com/MasahiroHarada/items/2597bd6973a45f92e1e8)
 

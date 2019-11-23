@@ -24,6 +24,9 @@ class Photo extends Model
         'id', 'owner', 'url',
     ];
 
+    /** 1ページあたりの項目数 */
+    protected $perPage = 6;
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
