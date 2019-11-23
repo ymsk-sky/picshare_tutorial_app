@@ -116,6 +116,22 @@ Photo.vue内<img>タグ内の `:src` は
 :scr="item.url"
 ```
 
+## 13章
+
+### コントローラー認証設定
+
+写真詳細取得APIも認証なしでアクセスできるように設定する際 `PhotoController.php`
+
+```
+$this->middleware('auth')->except(['index', 'show']);
+```
+
+となっているが実際は前章で追加した `download` も含まれている）。
+
+```
+$this->middleware('auth')->except(['index', 'download', 'show']);
+```
+
 # 参考記事
 - [Vue + Vue Router + Vuex + Laravel チュートリアル（全16回）を書きました。 - Qiita](https://qiita.com/MasahiroHarada/items/2597bd6973a45f92e1e8)
 
