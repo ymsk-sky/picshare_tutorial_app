@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class Photo extends Model
 {
@@ -90,7 +92,7 @@ class Photo extends Model
      */
     public function likes()
     {
-        return $this->belongsTo('App\User', 'likes')->withTimestamps();
+        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
     }
 
     /**

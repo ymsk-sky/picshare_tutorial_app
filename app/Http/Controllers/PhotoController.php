@@ -130,7 +130,7 @@ class PhotoController extends Controller
     {
         $photo = Photo::where('id', $id)->with('likes')->first();
 
-        if (! $Photo) {
+        if (! $photo) {
           abort(404);
         }
 
@@ -149,7 +149,7 @@ class PhotoController extends Controller
     {
       $photo = Photo::where('id', $id)->with('likes')->first();
 
-      if (! $Photo) {
+      if (! $photo) {
         abort(404);
       }
 
