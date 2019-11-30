@@ -132,6 +132,18 @@ $this->middleware('auth')->except(['index', 'show']);
 $this->middleware('auth')->except(['index', 'download', 'show']);
 ```
 
+## 15章
+
+### バックエンド実装
+
+`Photo` モデルに `likes_count` と `liked_by_user` という2つのアクセサを追加する際
+
+```
+use Illuminate\Support\Facades\Auth;
+```
+
+を記述する。
+
 # 参考記事
 - [Vue + Vue Router + Vuex + Laravel チュートリアル（全16回）を書きました。 - Qiita](https://qiita.com/MasahiroHarada/items/2597bd6973a45f92e1e8)
 
