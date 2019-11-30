@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Commnet;
+use App\Comment;
 use App\Photo;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
